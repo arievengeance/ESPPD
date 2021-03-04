@@ -74,7 +74,17 @@ $skin_menu_active_color:        $skin_accent;
     .nk-menu-link:hover .nk-menu-icon, .nk-menu-item.active > .nk-menu-link .nk-menu-icon, .nk-menu-item.current-menu > .nk-menu-link .nk-menu-icon {
         color: lighten($skin_accent, 10%);
     }
-    .user-name {
+
+    .nk-news-icon .icon {
+        color: $skin_accent;
+    }
+    .nk-news-text .icon {
+        color: $skin_base_light;
+    }
+    .nk-news-text p span {
+        color: rgba($skin_base_light, .9);
+    }
+    .user-name, .nk-news-text p {
         color: lighten($skin_base_light, 5%);
     }
     .nk-quick-nav-icon {
@@ -94,13 +104,16 @@ $skin_menu_active_color:        $skin_accent;
         color: lighten($skin_accent, 30%);
         background: lighten($skin_sidebar_bg_theme, 10%);
     }
-    .nk-quick-nav-icon, .overline-title {
+    .nk-news-icon .icon {
+        color: lighten($skin_accent, 15%)
+    }
+    .nk-news-text .icon, .nk-quick-nav-icon, .overline-title {
         color: $skin_accent_light;
     }
-    .nk-menu-heading .overline-title {
+    .nk-news-text p span, .nk-menu-heading .overline-title {
         color: rgba($skin_accent_light, .8);
     }
-    .user-name{
+    .user-name, .nk-news-text p {
         color: lighten($skin_accent_light, 5%);
     }
 }
@@ -115,9 +128,9 @@ $skin_menu_active_color:        $skin_accent;
 .icon-circle,
 .noUi-connect,
 .nk-kycfm-label::after,
-.sp-package-choose ~ label:after,
-.ticket-msg-attach-list a .icon,
+.plan-item-card:after,
 .nk-msg-menu-item a:after,
+.ui-shady .nk-msg-item.active:after, .ui-shady .nk-msg-item.current:after, 
 .ui-softy .nk-msg-item.active:after, .ui-softy .nk-msg-item.current:after {
     background: $skin_accent;
 }
@@ -130,6 +143,10 @@ $skin_menu_active_color:        $skin_accent;
 .user-avatar, [class^="user-avatar"]:not([class*="-group"]) {
     background: lighten($skin_accent, 10%);
 }
+.nk-news-item:hover .nk-news-text .icon {
+    color: lighten($skin_accent, 10%);
+}
+
 
 .nk-menu-link:hover, 
 .nk-menu-link:hover .nk-menu-icon, 
@@ -138,7 +155,6 @@ $skin_menu_active_color:        $skin_accent;
 .nk-menu-link:hover .count, 
 .nk-menu-sub .nk-menu-link:hover,
 .nk-menu-sub .active > .nk-menu-link,
-.nk-menu-sm .nk-menu-link:hover,
 
 .nk-menu-main .nk-menu-link:hover, 
 .nk-menu-main .nk-menu-link:focus, 
@@ -184,26 +200,23 @@ $skin_menu_active_color:        $skin_accent;
 .form-clip,
 .form-text-hint,
 .search-submit:hover,
-.nk-wg1-amount .amount,
+.nk-news-icon .icon,
+.nk-refwg-name .title,
+.nk-iv-wg1-info, .nk-wg4-note span,
+.nk-iv-scheme-item .amount-ex,
 .nk-kycfm-control:checked ~ .nk-kycfm-label .label-icon,
 .attach-item .icon,
 .attach-download:hover span,
-.ticket-meta .ticket-id strong,
-.tb-ticket-id,
-.tb-ftr-plan .icon,
-.support-topic-details h3, 
-.support-topic-details h4,
-.support-topic-count,
-.invoice-desc .title,
-.invoice-bills .table th,
-.invoice-contact ul .icon,
 .nk-reply-meta-info .whom,
 .nk-msg-tags li > span .icon,
 .nk-msg-menu-item a:hover,
 .nk-msg-menu-item.active a,
 .user-balance,
 .user-avatar[class*="-primary-dim"],
-.dropzone .dz-message-text span, a,
+.nk-order-ovwg-data.sell .amount, 
+.nk-order-ovwg-data.sell .title .icon,
+.nk-wg-action-content p strong, a,
+.dropzone .dz-message-text span,
 .nk-switch-icon.active, 
 .link-list-plain a .icon,
 .chat-upload-option a,
@@ -240,8 +253,8 @@ a:hover {
     background-color: mix($skin_accent, $white, 10%);
     border-color: mix($skin_accent, $white, 40%);
 }
-.alert-pro.alert-primary, .badge-primary, 
-.sp-package-choose:checked ~ label, 
+.alert-pro.alert-primary, .badge-primary,
+.plan-control:checked + .plan-item-card,
 .form-control:focus,
 .form-control.focus,
 .custom-file-input:focus ~ .custom-file-label,
@@ -251,13 +264,18 @@ a:hover {
 {
     border-color: $skin_accent;
 }
-.badge-outline-primary {
+.nk-order-ovwg-data.sell, .badge-outline-primary {
     border-color: mix($skin_accent, $white, 40%);
 }
 .dropdown-menu-s1 {
     border-top-color: $skin_accent;   
 }
+.nk-iv-wg2-amount.ui-v2 {
+    border-bottom-color: $skin_accent;   
+}
+
 .page-item.active .page-link, 
+.plan-control:checked + .plan-item-card .plan-label,
 .custom-control-input:checked ~ .custom-control-label::before,
 .custom-control-input:not(:disabled):active ~ .custom-control-label::before
 {
@@ -285,9 +303,15 @@ a:hover {
     background: $skin_accent;
     color: $white;
 }
-.icon-avatar{
+.icon-avatar, .nk-iv-scheme-icon.is-running {
     color: $skin_accent;
     background-color: mix($skin_accent, $white, 15%);
+}
+.is-dark .nk-wgw-icon {
+    background: mix($skin_accent, $white, 80%);
+}
+.is-dark .nk-iv-wg2-title .title {
+    color: $skin_accent_light;
 }
 .is-theme .nk-quick-nav-icon:before {
     background-color: darken($skin_accent_dark, 10%);
@@ -380,7 +404,8 @@ a:hover {
 .btn-outline-primary:not(:disabled):not(.disabled):active, 
 .btn-outline-primary:not(:disabled):not(.disabled).active, 
 .show > .btn-outline-primary.dropdown-toggle,
-.btn-primary.disabled, .btn-primary:disabled
+.btn-primary.disabled, .btn-primary:disabled,
+.invest-amount-control:checked ~ .invest-amount-label
 {
     background-color: $skin_accent;
     border-color: $skin_accent;
@@ -434,13 +459,18 @@ a:hover {
     background: $white;
     color: $skin_base_text;
 }
-.nk-menu-badge {
+.nk-menu-badge, .nk-menu-main .nk-menu-sub .nk-menu-badge {
     color: mix($skin_accent, $white, 70%);
     background-color: mix($skin_accent, $white, 10%);
 }
-.is-theme .sub-text,.is-theme .lead-text span {
+.is-theme .nk-sidebar-footer,.nk-apps-sidebar.is-theme,.is-theme .nk-sidebar-profile-fixed{
+    background: $skin_sidebar_bg_theme;
+    border-color: $skin_sidebar_bdr_theme;
+}
+.is-theme .nk-menu-footer .nk-menu-link,.is-theme .sub-text,.is-theme .lead-text span {
     color: $skin_accent_light;
 }
+
 .nav-switch-s2 .nav-link:hover, .nav-switch-s2 .nav-link:focus{
     color: $skin_base_text;
 }
@@ -448,7 +478,7 @@ a:hover {
     color: $skin_base_color;
 }
 
-//io-v130 @inbox
+//@inbox
 .active .nk-ibx-menu-text, 
 .active .nk-ibx-menu-item .icon, 
 .nk-reply-form-nav li a:hover, 
@@ -458,6 +488,7 @@ a:hover {
 .nk-ibx-menu li.active {
     background: mix($skin_accent, $white, 8%);
 }
+
 //@File Manager
 .nk-fmg-menu li.active {
     background: mix($skin_accent, $white, 8%);

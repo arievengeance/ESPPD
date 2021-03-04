@@ -740,17 +740,16 @@ $sidebar-apps-transition-duration:   450ms;
 
 $sidebar-transition-name:           ease;
 $sidebar-transition-duration:       450ms;
-$sidebar-overlay:                   rgba($darker,.4); //v120
+$sidebar-overlay:                   rgba($darker,.4); 
 
 $sidebar-bg-color:					$lighter;
 $sidebar-border-color:              $light-200;
 
 $sidebar-bg-dark-color:			    $darker;
 $sidebar-border-dark-color:         lighten($sidebar-bg-dark-color, 10%);
-//@i-v120 -s-
 $sidebar-bg-theme-color:			darken($accent-dark,2%);
 $sidebar-border-theme-color:		lighten($sidebar-bg-theme-color, 10%);
-//@i-v120 -e-
+
 $sidebar-bg-light-color:            $white;
 $sidebar-border-light-color:        $light;
 
@@ -777,7 +776,7 @@ $header-min-width:                  $min-body-width;
 
 $header-bg-color:                   $lighter;
 $header-bg-dark-color:              $darker;
-$header-bg-theme-color:             darken($accent-dark,2%); //@i-v120 
+$header-bg-theme-color:             darken($accent-dark,2%); 
 $header-border-bottom:				$border-light;
 $header-border-dark-bottom:		    lighten($header-bg-dark-color, 10%);
 $header-border-theme-bottom:		lighten($header-bg-theme-color, 10%);
@@ -813,7 +812,7 @@ $menu-icon-width:                   36px;
 $menu-icon-width-sm:                32px;
 
 
-//////  CONFIGURATION VARIABLE  @io-v120  //////
+//////  CONFIGURATION VARIABLE //////
 $dark_option:           true;
 $dark_theme_option:     true;
 $gd_analytic:           true;

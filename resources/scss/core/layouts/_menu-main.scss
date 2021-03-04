@@ -259,7 +259,7 @@ $menu-footer-icon-color: $accent-color;
         }
     }
     &-heading{
-        padding: .25rem $sidebar-gap-x 0.5rem;
+        padding: .75rem $menu-main-link-gap-x 0.5rem;
         color: $base-light;
         @if($menu_dark_theme_option==true) {
             .is-theme &{
@@ -267,7 +267,7 @@ $menu-footer-icon-color: $accent-color;
             }
         }
         .nk-menu-item + &{
-            padding-top: 2.5rem;
+            padding-top: 1.25rem;
         }
         .overline-title {
             color: inherit;
@@ -329,7 +329,6 @@ $menu-footer-icon-color: $accent-color;
             }
         }
     }
-    
     &-toggle{
         position: relative;
         &:after{
@@ -386,153 +385,11 @@ $menu-footer-icon-color: $accent-color;
     }
 }
 
-@include media-breakpoint-up(lg){
-    .nk-aside{
-        .nk-menu{
-            > li > .nk-menu-link, &-heading{
-                padding-left: 0;
-                padding-right: 0;
-            }
-        }
-    }
-}
-
-@include media-breakpoint-down(md){
-    .nk-aside{
-        .nk-menu-sub{
-            @if($rtl==false){
-                padding-left: 1.5rem;
-            }
-            @if($rtl==true){
-                padding-right: 1.5rem;
-            }
-        }
-    }
-}
-/////////////////////
-// Menu SM
-/////////////////////
-.nk-menu-sm{
-    .nk-menu + &{
-        padding-top: 5rem;
-    }
-    .nk-menu{
-        &-heading{
-            padding-bottom: $menu-sm-link-gap-y;
-            color: $base-text;
-        }
-        &-link{
-            padding-top: $menu-sm-link-gap-y;
-            padding-bottom: $menu-sm-link-gap-y;
-            color: $menu-sm-link-color;
-            &:hover{
-                color: $menu-link-color-hover;
-            }
-        }
-        &-icon{
-            width: $menu-sm-icon-width;
-            .icon{
-                font-size: 1rem;
-            }
-        }
-        &-text{
-            font-size: $menu-sm-link-fs;
-            line-height: $menu-sm-link-lh;
-        }
-    }
-}
-
-/////////////////////
-// Menu MD
-/////////////////////
-.nk-menu-md{
-    .nk-menu + &{
-        padding-top: 5rem;
-    }
-    .nk-menu{
-        &-heading{
-            padding-bottom: $menu-sm-link-gap-y;
-            color: $base-text;
-        }
-        &-link{
-            padding-top: $menu-sm-link-gap-y *1.3;
-            padding-bottom: $menu-sm-link-gap-y *1.3;
-            color: $menu-sm-link-color;
-            &:hover{
-                color: $menu-link-color-hover;
-            }
-        }
-        &-icon{
-            width: $menu-sm-icon-width;
-            .icon{
-                font-size: 1.25rem;
-            }
-        }
-        &-text{
-            font-size: $menu-sm-link-fs;
-            line-height: $menu-sm-link-lh;
-        }
-    }
-}
-
-
-////////////////////
-// Menu Inline
-////////////////////
-.nk-menu-inline{
-    display: flex;
-    .nk-menu-link{
-        padding-left: 0;
-        padding-right: 0;
-    }
-}
-
-
-////////////////////
-// Menu Footer
-////////////////////
-.nk-menu-footer{
-    display: flex;
-    .nk-menu{
-        &-link{
-            padding-left: 0;
-            padding-right: 0;
-            padding-top: .25rem;
-            padding-bottom: .25rem;
-            color: $menu-footer-link-color;
-            font-family: $base-font-family;
-            font-weight: $fw-medium;
-            &:hover{
-                color: $menu-link-color-hover;
-            }
-            @if($menu_dark_theme_option==true) {
-                .is-theme & {
-                    color: $accent-light;
-                }
-            }
-        }
-        &-icon{
-            width: $menu-footer-icon-width;
-            color: $menu-footer-icon-color;
-            .icon{
-                font-size: 1rem;
-            }
-        }
-        &-text{
-            font-size: $menu-footer-link-fs;
-            line-height: $menu-footer-link-lh;
-        }
-    }
-}
-
-
 //////////////////////////
 // Main Menu @Top Nav
 //////////////////////////
-.nk-menu-main{
-    &.nk-menu{
-        padding-top: 0.75rem;
-    }
+.nk-menu{
+    padding-top: 0.75rem;
     .nk-menu{
         &-link {
             color: $menu-main-link-color-base;
@@ -557,7 +414,7 @@ $menu-footer-icon-color: $accent-color;
                 }
                 @if($rtl==true){
                     border-right: 1px solid $menu-border-color;
-                    margin:.25rem $menu-link-gap-x .25rem 0;
+                    margin:.25rem $menu-link-gap-x 0 .25rem;
                 }
                 padding-bottom: 0;
                 .nk-menu-link{
@@ -573,46 +430,37 @@ $menu-footer-icon-color: $accent-color;
         &-link:hover, &-link:focus, &-item.active > .nk-menu-link, &-item.current-menu > .nk-menu-link, &-item:hover > .nk-menu-link{
             color: $menu-link-color-hover;
         }
-        &-heading{
-            padding: .75rem $menu-main-link-gap-x 0.5rem;
-            
-        }
-        &-item{
-            + .nk-menu-heading{
-                padding-top: 1.25rem;
-            }
-        }
     }
     > li {
         > .nk-menu-link {
-            font-family: $base-font-family;
-            font-weight: $fw-medium;
-            letter-spacing: - 0.01rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
         }
     }
     &.ui-s2{
         > li {
             > .nk-menu-link {
-                font-family: $alt-font-family;
-                text-transform: uppercase;
-                letter-spacing: 0.05rem;
-                font-weight: $fw-bold;
+                font-family: $base-font-family;
+                font-weight: $fw-medium;
+                text-transform:initial;
+                letter-spacing: - 0.01rem;
             }
         }
     }
 }
 @include media-breakpoint-down(md){
-    .nk-menu-main{
-        &.nk-menu{
-            max-height: calc(100vh - #{$header-height});
-            overflow: auto;
-        }
+    .nk-menu{
+        max-height: calc(100vh - #{$header-height});
+        overflow: auto;
     }
 }
 @include media-breakpoint-up(lg){
-    .nk-menu-main{
-        &.nk-menu{
+    .nk-menu{
+        @if($rtl==false){
             padding: 0 1.5rem 0 2rem;
+        }
+        @if($rtl==true){
+            padding: 0 2rem 0 1.5rem;
         }
         > li {
             padding: 0;
@@ -651,6 +499,7 @@ $menu-footer-icon-color: $accent-color;
                 border-top-right-radius: 0;
             }
         }
+
         .nk-menu{
             &-link {
                 padding: $menu-main-link-gap-y $menu-main-link-gap-x;
@@ -716,19 +565,19 @@ $menu-footer-icon-color: $accent-color;
                     padding-bottom: .5rem;
                 }
                 .nk-menu-sub{
-                    top: - 9px;
-                    padding: .5rem 0;
-                    border:1px solid $border-light;
                     margin: 0;
                     margin-top: 6px;
                     @if($rtl==false){
-                        left: 100%;
                         margin-left: -0.75rem;
+                        left: 100%;
                     }
                     @if($rtl==true){
-                        right: 100%;
                         margin-right: -0.75rem;
+                        right: 100%;
                     }
+                    top: - 9px;
+                    padding: .5rem 0;
+                    border:1px solid $border-light;
                     .nk-menu-link{
                         @if($rtl==false){
                             padding-left: 1.5rem;
@@ -755,14 +604,11 @@ $menu-footer-icon-color: $accent-color;
                 }
             }
         }
-        .nk-aside &{
-            display: none;
-        }
     }
     // DARK Version
     @if($menu_dark_option==true or $menu_dark_theme_option==true) {
         .is-dark, .is-theme {
-            .nk-menu-main {
+            .nk-menu {
                 > li {
                     > .nk-menu-link {
                         &:before {
@@ -777,7 +623,7 @@ $menu-footer-icon-color: $accent-color;
     }
     @if($menu_dark_option==true) {
         .is-dark {
-            .nk-menu-main {
+            .nk-menu {
                 > li {
                     > .nk-menu-link {
                         color: lighten($base-light, 10%);
@@ -794,7 +640,7 @@ $menu-footer-icon-color: $accent-color;
     }
     @if($menu_dark_theme_option==true) {
         .is-theme {
-            .nk-menu-main {
+            .nk-menu {
                 > li {
                     > .nk-menu-link {
                         color: $accent-light;

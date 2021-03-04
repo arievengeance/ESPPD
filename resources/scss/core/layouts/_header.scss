@@ -55,8 +55,6 @@
         background: $header-bg-color;
         border-bottom: 1px solid $header-border-bottom;
         padding: 0 $header-main-gap-x;
-        position: relative;
-        z-index: 800;
         @if($dark_option==true) {
             &.is-dark:not([class*=bg-]){
                 background: $header-bg-dark-color;
@@ -66,7 +64,6 @@
         &.is-light:not([class*=bg-]){
             background: $white;
         }
-        //@i-v120
         @if($dark_theme_option==true) {
             &.is-theme:not([class*=bg-]){
                 background: $header-bg-theme-color;
@@ -78,6 +75,7 @@
             top: 0;
             left: 0;
             right: 0;
+            z-index: 800;
             min-width: $header-min-width;
             + .nk-content {
                 margin-top: $header-height;
@@ -251,7 +249,13 @@
         }
     }
 }
-
+@keyframes overlay-fade-in{
+    0%{
+        opacity: 0;
+    }100%{
+        opacity: 1;
+    }
+}
 .nk-header{
     &-menu{
         position: fixed;
@@ -276,11 +280,12 @@
         }
         &.mobile-menu{
             padding-top: 65px;
+            padding-bottom: 2.5rem;
             padding-left: 0;
             padding-right: 0;
             transition: transform .4s ease;
         }
-        &.nk-sidebar-active{
+        &.nk-header-active{
             transform: translateX(0);
         }
     }
@@ -307,6 +312,16 @@
             }
         }
     }
+    &-overlay{
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $sidebar-overlay;
+        z-index: 900;
+        animation: overlay-fade-in .4s ease 1;
+    }
 }
 @include media-breakpoint-up(lg){
     .nk-header{
@@ -315,7 +330,7 @@
                 display: none;
             }
             position: static;
-            background: transparent;
+            background: transparent !important;
             height: auto;
             max-height: auto;
             @if($rtl==false){
@@ -328,6 +343,9 @@
             padding: 0;
             overflow: visible;
             transform: translateX(0) !important;
+        }
+        &-overlay{
+            display: none;
         }
     }
 }

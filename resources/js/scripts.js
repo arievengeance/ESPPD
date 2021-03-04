@@ -7,11 +7,10 @@
 
     //class names
     _body_theme  = 'nio-theme',
-    _menu        = 'nk-menu', 
+    _menu        = 'nk-menu',
     _mobile_nav  = 'mobile-menu',
     _header      = 'nk-header', 
     _header_menu = 'nk-header-menu', 
-    _aside       = 'nk-aside', 
     //breakpoints
     _break       = NioApp.Break;
 
@@ -19,18 +18,12 @@
         Object.keys(ext).forEach(function(key) { obj[key] = ext[key]; });
         return obj;
     }
-    // ClassInit @v1.0
-    NioApp.ClassBody = function() {
-        NioApp.AddInBody(_aside); 
-    };
 
     // ClassInit @v1.0
     NioApp.ClassNavMenu = function() {
         NioApp.BreakClass('.'+_header_menu, _break.lg, { timeOut: 0 } );
-        NioApp.BreakClass('.'+_aside, _break.lg, { timeOut: 0 } );
         $win.on('resize', function() {
             NioApp.BreakClass('.'+_header_menu, _break.lg);
-            NioApp.BreakClass('.'+_aside, _break.lg);
         });
     };
 
@@ -196,7 +189,7 @@
             attr = (opt) ? extend(def, opt) : def;
 
         $(imenu).on('click', function(e){
-            if ((NioApp.Win.width < _break.lg) || $(this).parents().hasClass(_aside)) {
+            if (NioApp.Win.width < _break.lg) {
                 NioApp.Toggle.dropMenu($(this), attr);
             }
             e.preventDefault();
@@ -206,7 +199,7 @@
     // Show Menu @v1.0
     NioApp.TGL.showmenu = function(elm, opt){
         var toggle = (elm) ? elm : '.nk-nav-toggle', $toggle = $(toggle), $contentD = $('[data-content]'),
-            toggleBreak = $contentD.hasClass(_header_menu) ? _break.lg : _break.xl,
+            toggleBreak = ($contentD.hasClass(_header_menu)) ? _break.lg : _break.xl,
             toggleOlay = _header + '-overlay', toggleClose = {profile: true, menu: false}, 
             def = { active: 'toggle-active', content: _header + '-active', body: 'nav-shown', overlay: toggleOlay, break: toggleBreak, close: toggleClose }, 
             attr = (opt) ? extend(def, opt) : def;
@@ -511,10 +504,9 @@
         });
         $.fn.DataTable.ext.pager.numbers_length = 7;
     }
-    
+
     // Extra @v1.1
     NioApp.OtherInit = function() {
-        NioApp.ClassBody();
         NioApp.PassSwitch();
         NioApp.CurrentLink();
         NioApp.LinkOff('.is-disable');

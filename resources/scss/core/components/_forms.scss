@@ -55,13 +55,13 @@
     bottom: 1px;
     @if($rtl==false){
         right: 1px;
-        padding-right: .75rem;
         padding-left: 1rem;
+        padding-right: .75rem;
     }
     @if($rtl==true){
         left: 1px;
-        padding-left: .75rem;
         padding-right: 1rem;
+        padding-left: .75rem;
     }
     display: flex;
     align-items: center;

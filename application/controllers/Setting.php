@@ -1,16 +1,21 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Setting extends CI_Controller {
-
+class Setting extends MY_Controller
+{
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Baseben_model', 'baseben');
+		$this->load->model('Baseben_Model', 'baseben');
 	}
 
-	public function index() 
+	public function index()
 	{
-		echo "KONTOL";
+		$load['menu'] = 'pengaturan-umum';
+
+		// Judul Halaman, Nama View Halaman, Nama Topping Javascript, Data Yang Dimuat
+		$this->template('Pengaturan Umum', 'settings/umum_v', 'settings/top/umum_v', $load);
 	}
+
 }
+

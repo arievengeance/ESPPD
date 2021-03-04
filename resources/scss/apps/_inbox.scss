@@ -112,8 +112,8 @@ $ibx-aside-width :      260px;
     background: $white;
     border:1px solid $border-color;
     border-radius: $border-radius;
-    min-height: calc(100vh - (#{$header-height} + 64px + 96px));
-    max-height: calc(100vh - (#{$header-height} + 64px + 96px));
+    min-height: calc(100vh - (#{$header-height} + 64px + 64px));
+    max-height: calc(100vh - (#{$header-height} + 64px + 64px));
     &-aside{
         position: absolute;
         background: $white;
@@ -173,7 +173,7 @@ $ibx-aside-width :      260px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: .75rem .75rem;
+        padding: .75rem 1.25rem;
         border-bottom: 1px solid $border-light;
         min-height: 61px;
         .title{
@@ -632,7 +632,7 @@ $ibx-aside-width :      260px;
             position: static;
             transform: none;
             transition: none;
-            height: calc(100vh - 228px);
+            height: calc(100vh - 196px);
         }
         &-menu,&-label,&-contact{
             padding-left: 1rem;
@@ -651,13 +651,9 @@ $ibx-aside-width :      260px;
                 padding-right: 1.75rem;
             }
         }
-        &-item{
+        &-item,&-head{
             padding-left: 1.75rem;
             padding-right: 1.75rem;
-        }
-        &-head{
-            padding-left: 1rem;
-            padding-right: 1rem;
         }
         &-head{
             .search-wrap{

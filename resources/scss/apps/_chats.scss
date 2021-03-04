@@ -7,7 +7,8 @@ $chat-body-gap-x: 1.25rem;
 $chat-body-gap-x-tab: 2.25rem;
 $chat-body-gap-x-desk: 1.75rem;
 
-$chat-aside-width: 325px;
+$chat-aside-width: 320px;
+$chat-aside-width-lg: 325px;
 $chat-aside-width-xl: 382px;
 
 $chat-profile-width: 325px;
@@ -364,8 +365,6 @@ $chat-profile-width-sm: 280px;
                 font-family: $nk-dashlite-font;
                 position: absolute;
                 top: 50%;
-                font-size: 11px;
-                line-height: 10px;
                 @if($rtl==false){
                     left: 0;
                     transform: translate(-50%,-50%);
@@ -374,6 +373,8 @@ $chat-profile-width-sm: 280px;
                     right: 0;
                     transform: translate(50%,-50%);
                 }
+                font-size: 11px;
+                line-height: 10px;
                 opacity: .8;
             }
         }
@@ -798,7 +799,7 @@ $chat-profile-width-sm: 280px;
                 border-color: $lighter;
                 &::placeholder {
                     color: $base-light;
-                }
+                  }
             }
         }
     }
@@ -946,9 +947,6 @@ $chat-profile-width-sm: 280px;
     &-profile{
         position: absolute;
         top: 0;
-        width: $chat-profile-width;
-        height: 100%;
-        max-height: 100%;
         @if($rtl==false){
             right: 0;
             transform: translateX(100%);
@@ -957,6 +955,9 @@ $chat-profile-width-sm: 280px;
             left: 0;
             transform: translateX(-100%);
         }
+        width: $chat-profile-width;
+        height: 100%;
+        max-height: 100%;
         transition: transform .3s  ease-in-out;
         background: $white;
         z-index: 100;
@@ -984,7 +985,7 @@ $chat-profile-width-sm: 280px;
         border-radius: $border-radius;
         min-height: calc(100vh - (#{$header-height} + 85px));
         max-height: calc(100vh - (#{$header-height} + 85px));
-        margin: -20px -18px -24px;
+        margin: -24px -18px;
         &-head{
             padding: 0.75rem 1.25rem;
             &-user{
@@ -1040,35 +1041,8 @@ $chat-profile-width-sm: 280px;
     }
 }
 
-@include media-breakpoint-down(lg){
+@media (min-width:860px){
     .nk-chat{
-        &-body{
-            &.show-chat{
-                position: fixed;
-                z-index: 2999;
-            }
-        }
-        &-head {
-            padding-top: 0.75rem;
-            padding-bottom: 0.75rem;
-        }
-    }
-}
-
-@include media-breakpoint-up(lg){
-    .nk-chat{
-        min-height: calc(100vh - (#{$header-height} + 64px + 96px));
-        max-height: calc(100vh - (#{$header-height} + 64px + 96px));
-        &-aside-panel, &-aside-head, &-aside-search {
-            padding-left: $chat-aside-gap-x-desk;
-            padding-right: $chat-aside-gap-x-desk;
-        }
-        &-list {
-            padding:0 ($chat-aside-gap-x - .25rem);
-        }
-        &-panel{
-            padding: 1.25rem 1.75rem;
-        }
         &-aside{
             width: $chat-aside-width;
             @if($rtl==false){
@@ -1087,6 +1061,53 @@ $chat-profile-width-sm: 280px;
             }
         }
     }
+}
+@media (max-width:859px){
+    .nk-chat{
+        &-body{
+            &.show-chat{
+                position: fixed;
+                z-index: 2999;
+            }
+        }
+        &-head {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+    }
+}
+
+@media (min-width:860px) and (max-width:991px){
+    .nk-chat{
+        &-aside{
+            width: $chat-aside-width + 25px;
+            @if($rtl==false){
+                border-right: 1px solid $border-light;
+            }
+            @if($rtl==true){
+                border-left: 1px solid $border-light;
+            }
+        }
+    }
+}
+@include media-breakpoint-up(lg){
+    .nk-chat{
+        min-height: calc(100vh - (#{$header-height} + 64px + 72px));
+        max-height: calc(100vh - (#{$header-height} + 64px + 72px));
+        &-aside-panel, &-aside-head, &-aside-search {
+            padding-left: $chat-aside-gap-x-desk;
+            padding-right: $chat-aside-gap-x-desk;
+        }
+        &-list {
+            padding:0 ($chat-aside-gap-x - .25rem);
+        }
+        &-aside{
+            width: $chat-aside-width-lg;
+        }
+        &-panel{
+            padding: 1.25rem 1.75rem;
+        }
+    }
     .chat {
         &-profile {
             &-head, &-body-inner{
@@ -1098,6 +1119,16 @@ $chat-profile-width-sm: 280px;
 }
 @include media-breakpoint-up(xl){
     .nk-chat{
+        &-body{
+            &.profile-shown{
+                @if($rtl==false){
+                    padding-right: $chat-profile-width;
+                }
+                @if($rtl==true){
+                    padding-left: $chat-profile-width;
+                }
+            }
+        }
         &-profile {
             @if($rtl==false){
                 border-left: 1px solid $border-light;
@@ -1112,6 +1143,16 @@ $chat-profile-width-sm: 280px;
     .nk-chat{
         &-aside{
             width: $chat-aside-width-xl;
+        }
+        &-body{
+            &.profile-shown{
+                @if($rtl==false){
+                    padding-right: $chat-profile-width-xl;
+                }
+                @if($rtl==true){
+                    padding-left: $chat-profile-width-xl;
+                }
+            }
         }
         &-profile{
             width: $chat-profile-width-xl;

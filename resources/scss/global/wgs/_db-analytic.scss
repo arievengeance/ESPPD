@@ -1,5 +1,6 @@
 // @conditiona -s-
 @if($gd_analytic==true) {
+
 //Device Status
 .device-status{
 	display: flex;
@@ -322,4 +323,5 @@
 		}
 	}
 }
+
 } // @condition -e-

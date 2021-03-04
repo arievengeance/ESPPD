@@ -18,8 +18,6 @@ $fmg-file-icon-width-lg :    72px;
         max-height: 100%;
         background: $white;
         flex-shrink: 0;
-        z-index: 99;
-        top: $header-height;
         @if($rtl==false){
             left: 0;
             transform: translateX(-100%);
@@ -30,6 +28,8 @@ $fmg-file-icon-width-lg :    72px;
             transform: translateX(100%);
             border-left: 1px solid $border-light;
         }
+        z-index: 99;
+        top: $header-height;
         transition: transform .4s linear;
         min-height: calc(100vh - #{$header-height});
         max-height: calc(100vh - #{$header-height});
@@ -277,8 +277,6 @@ $fmg-file-icon-width-lg :    72px;
             width: $fmg-aside-width;
             position: absolute;
             top: 0;
-            min-height: 100%;
-            max-height: 100%;
             @if($rtl==false){
                 left: 0;
                 border-top-left-radius: $border-radius;
@@ -289,6 +287,8 @@ $fmg-file-icon-width-lg :    72px;
                 border-top-right-radius: $border-radius;
                 border-bottom-right-radius: $border-radius;
             }
+            min-height: 100%;
+            max-height: 100%;
             &-top{
                 flex-grow: 0;
             }
@@ -696,20 +696,40 @@ $fmg-file-icon-width-lg :    72px;
                 > div{
                     border-top: 1px solid $border-color;
                     &:first-child{
-                        border-top-left-radius: $border-radius;
+                        @if($rtl==false){
+                            border-top-left-radius: $border-radius;
+                        }
+                        @if($rtl==true){
+                            border-top-right-radius: $border-radius;
+                        }
                     }
                     &:last-child{
-                        border-top-right-radius: $border-radius;
+                        @if($rtl==false){
+                            border-top-right-radius: $border-radius;
+                        }
+                        @if($rtl==true){
+                            border-top-left-radius: $border-radius;
+                        }
                     }
                 }
             }
             &:last-child{
                 > div{
                     &:first-child{
-                        border-bottom-left-radius: $border-radius;
+                        @if($rtl==false){
+                            border-bottom-left-radius: $border-radius;
+                        }
+                        @if($rtl==true){
+                            border-bottom-right-radius: $border-radius;
+                        }
                     }
                     &:last-child{
-                        border-bottom-right-radius: $border-radius;
+                        @if($rtl==false){
+                            border-bottom-right-radius: $border-radius;
+                        }
+                        @if($rtl==true){
+                            border-bottom-left-radius: $border-radius;
+                        }
                     }
                 }
             } 

@@ -200,12 +200,12 @@
             font-size: 1rem;
             font-family: $nk-dashlite-font;
             @if($rtl==false){
-                right: 1.25rem;
                 content: $ni-chevron-right;
+                right: 1.25rem;
             }
             @if($rtl==true){
-                left: 1.25rem;
                 content: $ni-chevron-left;
+                left: 1.25rem;
             }
             color: $base-light;
             transition: .3s ease;

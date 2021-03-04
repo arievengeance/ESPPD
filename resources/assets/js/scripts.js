@@ -14,7 +14,6 @@
       _mobile_nav = 'mobile-menu',
       _header = 'nk-header',
       _header_menu = 'nk-header-menu',
-      _aside = 'nk-aside',
       //breakpoints
   _break = NioApp.Break;
 
@@ -26,21 +25,12 @@
   } // ClassInit @v1.0
 
 
-  NioApp.ClassBody = function () {
-    NioApp.AddInBody(_aside);
-  }; // ClassInit @v1.0
-
-
   NioApp.ClassNavMenu = function () {
     NioApp.BreakClass('.' + _header_menu, _break.lg, {
       timeOut: 0
     });
-    NioApp.BreakClass('.' + _aside, _break.lg, {
-      timeOut: 0
-    });
     $win.on('resize', function () {
       NioApp.BreakClass('.' + _header_menu, _break.lg);
-      NioApp.BreakClass('.' + _aside, _break.lg);
     });
   }; // Code Prettify @v1.0
 
@@ -242,7 +232,7 @@
     },
         attr = opt ? extend(def, opt) : def;
     $(imenu).on('click', function (e) {
-      if (NioApp.Win.width < _break.lg || $(this).parents().hasClass(_aside)) {
+      if (NioApp.Win.width < _break.lg) {
         NioApp.Toggle.dropMenu($(this), attr);
       }
 
@@ -598,7 +588,6 @@
 
 
   NioApp.OtherInit = function () {
-    NioApp.ClassBody();
     NioApp.PassSwitch();
     NioApp.CurrentLink();
     NioApp.LinkOff('.is-disable');
