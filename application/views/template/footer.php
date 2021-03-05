@@ -20,6 +20,10 @@
     <script src="<?= base_url() ?>resources/assets/js/scripts.js?ver=2.2.0"></script>
     <script src="<?= base_url() ?>resources/assets/js/charts/gd-invest.js?ver=2.2.0"></script>
 
+    
+    <!-- Selectize -->
+    <script src="https://cdn.jsdelivr.net/npm/selectize@0.12.2/dist/js/standalone/selectize.min.js"></script>
+
     <?php if ($topping) {
         $this->load->view($topping);
     }

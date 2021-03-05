@@ -13,6 +13,9 @@
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="<?= base_url() ?>resources/assets/css/dashlite.css?ver=2.2.0">
     <link id="skin-default" rel="stylesheet" href="<?= base_url() ?>resources/assets/css/theme.css?ver=2.2.0">
+
+    <!-- Selectize -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/selectize@0.12.2/dist/css/selectize.bootstrap3.css"/>
 </head>
 
 <body class="nk-body npc-invest bg-lighter ">
@@ -51,17 +54,9 @@
                                     </a>
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item has-sub">
-                                    <a href="#" class="nk-menu-link nk-menu-toggle">
+                                    <a href="<?= site_url() ?>surat-tugas" class="nk-menu-link">
                                         <span class="nk-menu-text"><em class="icon ni ni-briefcase"></em> SURAT TUGAS</span>
                                     </a>
-                                    <ul class="nk-menu-sub">
-                                        <li class="nk-menu-item">
-                                            <a href="#" class="nk-menu-link"><span class="nk-menu-text">Daftar Usulan</span></a>
-                                        </li>
-                                        <li class="nk-menu-item">
-                                            <a href="#" class="nk-menu-link"><span class="nk-menu-text">Surat Tugas</span></a>
-                                        </li>
-                                    </ul><!-- .nk-menu-sub -->
                                 </li><!-- .nk-menu-item -->
                                 <li class="nk-menu-item has-sub">
                                     <a href="#" class="nk-menu-link nk-menu-toggle">
@@ -69,10 +64,10 @@
                                     </a>
                                     <ul class="nk-menu-sub">
                                         <li class="nk-menu-item">
-                                            <a href="#" class="nk-menu-link"><span class="nk-menu-text">Laporan SPPD</span></a>
+                                            <a href="<?= site_url() ?>laporan" class="nk-menu-link"><span class="nk-menu-text">Laporan SPPD</span></a>
                                         </li>
                                         <li class="nk-menu-item">
-                                            <a href="#" class="nk-menu-link"><span class="nk-menu-text">Perjalanan Dinas</span></a>
+                                            <a href="<?= site_url() ?>laporan/rekapitulasi" class="nk-menu-link"><span class="nk-menu-text">Rekap Perjalanan Dinas</span></a>
                                         </li>
                                     </ul><!-- .nk-menu-sub -->
                                 </li><!-- .nk-menu-item -->
@@ -188,13 +183,13 @@
                                     </a>
                                     <ul class="nk-menu-sub">
                                         <li class="nk-menu-item">
-                                            <a href="#" class="nk-menu-link"><span class="nk-menu-text">Umum</span></a>
+                                            <a href="<?= site_url() ?>settings/umum" class="nk-menu-link"><span class="nk-menu-text">Umum</span></a>
                                         </li>
                                         <li class="nk-menu-item">
-                                            <a href="#" class="nk-menu-link"><span class="nk-menu-text">Format Nomor</span></a>
+                                            <a href="<?= site_url() ?>settings/format-nomor" class="nk-menu-link"><span class="nk-menu-text">Format Nomor</span></a>
                                         </li>
                                         <li class="nk-menu-item">
-                                            <a href="#" class="nk-menu-link"><span class="nk-menu-text">Pengguna</span></a>
+                                            <a href="<?= site_url() ?>settings/pengguna" class="nk-menu-link"><span class="nk-menu-text">Pengguna</span></a>
                                         </li>
                                         <li class="nk-menu-item">
                                             <a href="#" class="nk-menu-link"><span class="nk-menu-text">Backup / Restore Database</span></a>

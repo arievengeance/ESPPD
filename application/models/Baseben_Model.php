@@ -22,7 +22,11 @@ class Baseben_Model extends CI_Model
         if (isset($data['join']) && is_array($data['join'])) {
 
             foreach($data['join'] as $key => $value) {
-                $db->join($data['join'][$key][0], $data['join'][$key][1]);
+                if(count($data['join'][$key]) > 2) {
+                    $db->join($data['join'][$key][0], $data['join'][$key][1], $data['join'][$key][2]);
+                } else {
+                    $db->join($data['join'][$key][0], $data['join'][$key][1]);
+                }
             }
         }
 
